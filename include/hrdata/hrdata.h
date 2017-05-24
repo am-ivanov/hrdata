@@ -6,6 +6,7 @@
 #include "hrdata/node.h"
 #include "hrdata/parser.h"
 #include "hrdata/token.h"
+#include "hrdata/types.h"
 
 namespace hrdata {
 

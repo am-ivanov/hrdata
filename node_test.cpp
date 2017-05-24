@@ -3,6 +3,9 @@
 int main() {
 	hrdata::Node n;
 	
+	n = hrdata::LIST_NODE;
+	n[0];
+	
 	n = hrdata::MAP_NODE;
 	n = "test";
 	n = 10.0;

@@ -29,8 +29,8 @@ public:
 class OutOfRange : public Exception {
 public:
 	explicit OutOfRange(size_t accessed, size_t available, const std::string& path) :
-		Exception("OutOfRange::Maximal available index " + toString(available-1) +
-			toString(" is lower than accessed index ") + toString(accessed) + ". " + 
+		Exception("OutOfRange::Indices must be less than " + toString(available) +
+			toString(", but accessed index is ") + toString(accessed) + ". " + 
 			"Path: " + path)
 	{
 	}

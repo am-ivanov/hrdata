@@ -184,10 +184,10 @@ std::string Node::path() const
 						toString(i) + toString(TT_BRACK_RIGHT);
 				}
 			}
-			
-		default:
-			assert(0);
+		default: {}
 	}
+	assert(0);
+	throw Exception("hrdata::Internal error, broken inveriant");
 }
 
 void Node::emit(std::ostream& os, size_t depth) const {

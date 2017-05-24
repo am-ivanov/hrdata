@@ -63,6 +63,9 @@ struct Node {
 	template <typename T>
 	operator T() const;
 	
+	template <typename T>
+	T as() const;
+	
 	// go back to parent 
 	
 	bool isRoot() const;
@@ -119,7 +122,7 @@ Node& Node::operator=(const T& rhs)
 }
 
 template <typename T>
-Node::operator T() const
+T Node::as() const 
 {
 	assert(test());
 	requireNodeType(STRING_NODE, m_type, path());
@@ -130,6 +133,12 @@ Node::operator T() const
 		throw ConversionError(m_string, toString(value)); 
 	}
 	return value;
+}
+	
+template <typename T>
+Node::operator T() const
+{
+	return as<T>();
 }
 
 } // namespace
