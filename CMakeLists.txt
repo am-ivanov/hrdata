@@ -16,3 +16,6 @@ target_link_libraries(formatter hrdata)
 
 add_executable(node_test node_test.cpp)
 target_link_libraries(node_test hrdata)
+
+export(PACKAGE HRDATA)
+export(TARGETS hrdata FILE HRDATAConfig.cmake)
