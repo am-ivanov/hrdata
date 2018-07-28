@@ -176,6 +176,7 @@ std::string Node::path() const
 						escapeString(u.key(i)) + toString(TT_BRACE_RIGHT);
 				}
 			}
+			break;
 		case (LIST_NODE):
 			for (size_t i = 0; i < u.elems(); ++i) {
 				const Node* temp = &u[i];
@@ -184,7 +185,9 @@ std::string Node::path() const
 						toString(i) + toString(TT_BRACK_RIGHT);
 				}
 			}
-		default: {}
+			break;
+		default:
+			break;
 	}
 	assert(0);
 	throw Exception("hrdata::Internal error, broken inveriant");
