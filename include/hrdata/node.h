@@ -27,6 +27,8 @@ struct Node {
 	
 	void reset(NodeType type = EMPTY_NODE);
 	
+	void reparent(Node* parent);
+
 	Node& operator=(NodeType type);
 	
 	template <typename T>

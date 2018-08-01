@@ -31,6 +31,11 @@ void Node::reset(NodeType type)
 	assert(test());
 }
 
+void Node::reparent(Node *parent)
+{
+	m_parent = parent;
+}
+
 NodeType Node::type() const
 {
 	return m_type;
@@ -42,7 +47,13 @@ Node& Node::operator=(const Node& rhs)
 	m_type = rhs.m_type;
 	m_map_keys = rhs.m_map_keys;
 	m_map = rhs.m_map;
+	for (Map::iterator it = m_map.begin(); it != m_map.end(); ++it) {
+		it->second.reparent(this);
+	}
 	m_list = rhs.m_list;
+	for (List::iterator it = m_list.begin(); it != m_list.end(); ++it) {
+		it->reparent(this);
+	}
 	m_string = rhs.m_string;
 	assert(test());
 	return *this;
