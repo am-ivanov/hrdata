@@ -136,7 +136,15 @@ T Node::as() const
 	}
 	return value;
 }
-	
+
+template <>
+inline std::string Node::as<std::string>() const
+{
+	assert(test());
+	requireNodeType(STRING_NODE, m_type, path());
+	return m_string;
+}
+
 template <typename T>
 Node::operator T() const
 {
