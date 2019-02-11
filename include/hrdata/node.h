@@ -61,10 +61,6 @@ struct Node {
 	
 	// string part
 	
-	// check is path to string exists and return its value
-	template <typename T>
-	operator T() const;
-	
 	template <typename T>
 	T as() const;
 	
@@ -143,12 +139,6 @@ inline std::string Node::as<std::string>() const
 	assert(test());
 	requireNodeType(STRING_NODE, m_type, path());
 	return m_string;
-}
-
-template <typename T>
-Node::operator T() const
-{
-	return as<T>();
 }
 
 } // namespace
